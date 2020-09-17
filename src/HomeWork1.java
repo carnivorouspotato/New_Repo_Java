@@ -23,5 +23,6 @@ public class HomeWork1 {
         String lastName = "S";
         System.out.println("Initials of my name are: " + firstName + lastName);
         int test_Int = 89;
+        int ne = 50;
     }
 }
