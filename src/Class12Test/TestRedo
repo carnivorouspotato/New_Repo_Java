@@ -81,3 +81,45 @@ lowestMissingInt(smallestInter);
 
 
 
+David Smith  4:58 PM
+√
+package Class12Test;
+import org.w3c.dom.ls.LSOutput;
+import javax.crypto.spec.PSource;
+public class CodeTest {
+//public int speedLimit = 70;
+public static int driversPoints = 0;
+   public static void ticketingSystem (int speedOver, String driversName) {
+       int speedLimit = 70;
+       //int driversPoints = 0;
+       speedLimit = speedLimit + speedOver;
+       for (int i = speedLimit; i >= 75 && i <= 79; i++) {
+           driversPoints = driversPoints + 1;
+           System.out.println("Your total speed is " + speedLimit + ".");
+           System.out.println("You are : " + speedOver + " MPH over the limit");
+           System.out.println("You now have: " + driversPoints + " point/s");
+           break;
+       }
+       for (int i = speedLimit; i >= 80 && i <= 84; i++) {
+           driversPoints = driversPoints + 2;
+           System.out.println(driversName + " your total speed is: " + speedLimit);
+           System.out.println("You are : " + speedOver + "  MPH over the limit");
+           System.out.println(driversName + " you now have: " + driversPoints + " points");
+           break;
+       }
+       for (int i = speedLimit; i >= 85 && i <= 90; i++) {
+           driversPoints = driversPoints + 3;
+           System.out.println(driversName + " your total speed is: " + speedLimit);
+           System.out.println("You are : " + speedOver + "  MPH over the limit");
+           System.out.println(driversName + " you now have: " + driversPoints + " points");
+           break;
+       }
+       for (int i = speedLimit ; i >= 91 && i <= 115 ; i++){
+           driversPoints = driversPoints + 12;
+           System.out.println(driversName + " your total speed is: " + speedLimit);
+           System.out.println("You are : " + speedOver + "  MPH over the limit");
+           System.out.println(driversName + " you now have: " + driversPoints + " points");
+       if (i >= 91 && i <= 115 && driversPoints == 12){
+           System.out.println("Your license is now suspended.");
+break;
+       }
