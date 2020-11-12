@@ -1,0 +1,48 @@
+package ResturantHomework;
+import java.util.ArrayList;
+import java.util.List;
+
+public  class ResturantMethods  {
+    public static int maxSeating = 0;
+    public static int maxTables = 0;
+    public static String restaurantName = "";
+  public  static int updatedseating = 0;
+    //int currentguestCount = 0;
+public static int guestCount = 0;
+
+
+    public  ResturantMethods (String restaurantNameNew, int maxSeats, int maxTable){
+        maxSeats = maxSeating;
+        maxTable = maxTables;
+        restaurantNameNew = restaurantName;
+        String restaurantInfo = "The name of the restaurant will be: " + restaurantName + "\nThe alloted amount of guests will be: " + maxSeating + "\nThe number of tables will be: " + maxTables;
+        System.out.println(restaurantInfo);
+
+    }
+
+
+
+
+
+
+    public void addSeating  (int guestsLeaving){
+        int newSeating = updatedseating + guestsLeaving;
+        System.out.println("You now have: " + newSeating + " seats available");
+
+
+    }
+    public void restaurantInfo() {
+        System.out.println("Current restaurant info");
+        System.out.println("Name of restaurant: " + restaurantName);
+        System.out.println("Current seats available: " + updatedseating);
+        System.out.println("Max guest capacity: " + maxSeating);
+        int guestCount = maxSeating - updatedseating;
+        System.out.println("Current number of guest: " + guestCount);
+
+    }
+
+    public static void main(String[] args) {
+
+    }
+
+}
