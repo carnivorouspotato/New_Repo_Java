@@ -1,48 +1,80 @@
-package ResturantHomework;
-import java.util.ArrayList;
-import java.util.List;
+package AnotherClass;
 
-public  class ResturantMethods  {
-    public static int maxSeating = 0;
-    public static int maxTables = 0;
-    public static String restaurantName = "";
-  public  static int updatedseating = 0;
-    //int currentguestCount = 0;
-public static int guestCount = 0;
+import java.util.Scanner;
 
+public class RestaurantHomeWork {
+    String restaurantName = "";
+    int maxSeating = 0;
+    int partySize = 0;
+    int[] resturantLoop = new int[5];
 
-    public  ResturantMethods (String restaurantNameNew, int maxSeats, int maxTable){
-        maxSeats = maxSeating;
-        maxTable = maxTables;
-        restaurantNameNew = restaurantName;
-        String restaurantInfo = "The name of the restaurant will be: " + restaurantName + "\nThe alloted amount of guests will be: " + maxSeating + "\nThe number of tables will be: " + maxTables;
-        System.out.println(restaurantInfo);
+    public void resturantSetup (String nameRestaurant, int guestCapacity){
+        this.maxSeating = guestCapacity;
+        this.restaurantName = nameRestaurant;
 
     }
 
+    public void restaurantOperations () {
+        int closedForTheNight = 0;
+        int seatTheGuests = 1;
+        int doNotSeatGuest = 2;
+        int restaurantInfo = 3;
+        for (int i = 0; i <= resturantLoop.length -1; i++) {
+            int updatedSeating = maxSeating - partySize;
+            System.out.println("You currently have: " + updatedSeating + " seats available.");
+            System.out.println("\n****If you would like to seat guests press 1.****  \n \n****If you want to remove party press 2.****  \n \n****Press 0 if you are closed.****  \n \n****If you would like restaurant info press 3.****");
+            Scanner seatingNewGuest = new Scanner(System.in);
+            int addGuestsToSeatingCount = seatingNewGuest.nextInt();
+            if (addGuestsToSeatingCount == seatTheGuests) {
+                System.out.println("Please enter the size of the party");
+                Scanner sizeOfParty = new Scanner(System.in);
+                int sizeofPartyInput = sizeOfParty.nextInt();
+                if (updatedSeating >= sizeofPartyInput) {
+                    partySize = partySize + sizeofPartyInput;
+                } else {
+                    System.out.println("There are no more seats");
+                }
+            }
 
+            if (addGuestsToSeatingCount == doNotSeatGuest) {
+                System.out.println("How many guests are leaving? ");
+                Scanner leavingGuests = new Scanner(System.in);
+                int removingParty = leavingGuests.nextInt();
+                partySize -= removingParty;
+                System.out.println("You have just added: " + removingParty + " seats.");
+            }
+            if (addGuestsToSeatingCount == closedForTheNight){
+                System.out.println("We are closed for the night");
+                break;
+            }
 
-
-
-
-    public void addSeating  (int guestsLeaving){
-        int newSeating = updatedseating + guestsLeaving;
-        System.out.println("You now have: " + newSeating + " seats available");
-
-
+            if (addGuestsToSeatingCount == restaurantInfo){
+                System.out.println("Name of the restaurant is: " +  restaurantName + ".");
+                System.out.println("The max guests allowed is: " + maxSeating + ".");
+                System.out.println("You currently have: " + updatedSeating + " seats available.");
+            }
+        }
     }
-    public void restaurantInfo() {
-        System.out.println("Current restaurant info");
-        System.out.println("Name of restaurant: " + restaurantName);
-        System.out.println("Current seats available: " + updatedseating);
-        System.out.println("Max guest capacity: " + maxSeating);
-        int guestCount = maxSeating - updatedseating;
-        System.out.println("Current number of guest: " + guestCount);
 
-    }
+    /** public void seatingInfo (){
+        System.out.println("Name of the restaurant is: " +  restaurantName + ".");
+        System.out.println("The max guests allowed is: " + maxSeating + ".");
+        int updatedSeating = maxSeating - partySize;
+        System.out.println("You currently have: " + updatedSeating + " seats available.");
+    }*/
 
     public static void main(String[] args) {
+        RestaurantHomeWork object = new RestaurantHomeWork();
+        object.resturantSetup("Daves Dinner", 100);
+        object.restaurantOperations();
+
 
     }
-
 }
+
+
+
+
+
+
+
