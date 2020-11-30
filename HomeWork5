@@ -1,0 +1,98 @@
+package SeleniumHomework5;
+
+import  org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class HomeWorkFive {
+
+
+    @Test
+    public void diaplayElement () throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", "./DriverExe/chromedriver");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://yahoo.com");
+
+        WebElement notificationIcon = driver.findElement(By.id("notification-container"));
+        boolean seeNotificationIcon = notificationIcon.isDisplayed();
+        notificationIcon.click();
+        Thread.sleep(2000);
+        WebElement firstElement = (WebElement) driver.findElements(By.id("//*[@id=\"ybarNotificationBody]"));
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//div/span[@class='yns-title']"));
+
+
+    }
+
+    @Test
+    public void facebookTestCase () throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", "./DriverExe/chromedriver");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://facebook.com");
+        WebElement newAccount = driver.findElement(By.id("u_0_2"));
+        newAccount.click();
+        Thread.sleep(3000);
+       WebElement firstname = driver.findElement(By.name("firstname"));
+       firstname.click();
+       Thread.sleep(2000);
+       firstname.sendKeys("Bob");
+       WebElement lastName = driver.findElement(By.name("lastname"));
+       lastName.click();
+       Thread.sleep(2000);
+       lastName.sendKeys("Billlbo");
+       WebElement emailField = driver.findElement(By.name("reg_email__"));
+       emailField.click();
+       emailField.sendKeys("none@none.com");
+       Thread.sleep(2000);
+       WebElement repeatEmail = driver.findElement(By.name("reg_email_confirmation__"));
+       repeatEmail.click();
+       repeatEmail.sendKeys("none@none.com");
+       WebElement password = driver.findElement(By.name("reg_passwd__"));
+       password.click();
+       Thread.sleep(1000);
+       password.sendKeys("nopassword123");
+       Thread.sleep(1000);
+       WebElement birthdayMonth = driver.findElement(By.name("birthday_month"));
+       birthdayMonth.click();
+       birthdayMonth.findElement(By.xpath("//option[contains(text(),'Mar')]")).click();
+
+       WebElement birthdayDay = driver.findElement(By.name("birthday_day"));
+       birthdayDay.click();
+       WebElement birthYear = driver.findElement(By.name("birthday_year"));
+       birthYear.click();
+
+       WebElement submitButton = driver.findElement(By.name("websubmit"));
+       submitButton.click();
+
+       Thread.sleep(2000);
+
+       WebElement errorMessage = driver.findElement(By.xpath("//div[@class='_5633 _5634 _53ij']"));
+        System.out.println(errorMessage.getText());
+
+
+
+
+    }
+}
+  /** Testcase-1: User should be able to click on the yahoo notification
+          * 1. Launch yahoo.com
+          * 2. Move mouse to bell icon
+          * 3. user should be able to click the first notification
+          *
+          *
+          * Testcase-2: User should get error on invalid date of birth
+          * 1. Launch facebook.com
+          * 2. Click 'Create new Account' button
+          * 3. Enter fname as Firstname
+          * 4. Enter lname as Lastname
+          * 5. "abcd@test.com" as email address
+          * 6. "abcd@1234" as New Password
+          * 7. Enter your "Jan 4 1998" as birth date
+          * 8. Click the 'Sign Up' button
+          * 9. Verify user see the error msg for gender. (Please choose a gender. You can change who can see this later.)
+          *
+          */
