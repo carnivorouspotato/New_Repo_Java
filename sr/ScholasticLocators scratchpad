@@ -1,0 +1,63 @@
+    System.setProperty("webdriver.chrome.driver", "./DriverExe/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://clubs3qa1.scholastic.com/");
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        /**Sign in steps*/
+
+    WebElement signInButton = driver.findElement(By.xpath("//a[@class='signin pureguest dialog-close disable-autoplay']"));
+        signInButton.click();
+Thread.sleep(3000);
+    WebElement emailAccountField = driver.findElement(By.id("dwfrm_login_username"));
+        emailAccountField.click();
+        emailAccountField.sendKeys("billyjohndoe52@gmail.com");
+        Thread.sleep(3000);
+
+    WebElement passwordField = driver.findElement(By.id("dwfrm_login_password"));
+        passwordField.click();
+        passwordField.sendKeys("Temp122520!");
+        Thread.sleep(3000);
+    WebElement logIntoAccountButton = driver.findElement(By.id("loginModalBtn"));
+        logIntoAccountButton.click();
+
+        Thread.sleep(6000);
+    /**Sign in steps completed*/
+
+    /**Main page search*/
+    WebElement webpageDropDown = driver.findElement(By.xpath("//span[@class='notification-chevron fa fa-chevron-up']"));
+    Thread.sleep(2000);
+    webpageDropDown.click();
+    Thread.sleep(3000);
+//WebElement toolCloseBox = driver.findElement(By.xpath("//div[@class='tooltipster-content']"));
+//WebElement toolClose = driver.findElement(By.xpath("//span[@class='tooltipster-close ']"));
+ //   action.moveToElement(toolCloseBox).moveToElement(toolClose).click().build().perform();
+    Thread.sleep(2000);
+    WebElement searchField = driver.findElement(By.id("q"));
+        searchField.click();
+        searchField.sendKeys("Harry");
+        searchField.sendKeys(Keys.ENTER);
+
+Thread.sleep(3000);
+
+        Actions action = new Actions(driver);
+
+WebElement bookimage = driver.findElement(By.xpath("//img[@title='Harry Potter and the Deathly Hallows']"));
+  WebElement bookClick = driver.findElement(By.xpath("//div[@id='5e1d68d85c43f4117e13552d36']//a[contains(text(),'QUICK LOOK')]"));
+        action.moveToElement(bookimage).moveToElement(bookClick).click().build().perform();
+        Thread.sleep(3000);
+        WebElement recButton = driver.findElement(By.xpath("//div[@class='recommended-button icon-button tooltipstered']"));
+       recButton.click();
+       // Thread.sleep(3000);
+       WebElement reccheckbox = driver.findElement(By.xpath("//input[@class='wishlist-dialog-checkbox recommended']"));
+       reccheckbox.click();
+        Thread.sleep(2000);
+        WebElement recCloseButton = driver.findElement(By.xpath("//span[@class='ui-button-icon ui-icon ui-icon-closethick']"));
+        recCloseButton.click();
+Thread.sleep(2000);
+        WebElement mylistButton = driver.findElement(By.xpath("//span[contains(text(),'My Lists')]"));
+        mylistButton.click();
+Thread.sleep(2000);
+        WebElement recForStudents = driver.findElement(By.xpath("//a[@href='https://clubs3qa1.scholastic.com/wishlist?wishliststudentsform=true']"));
+        recForStudents.click();
+
+    }
+}
